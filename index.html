@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Practice Tasks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .task {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    .task h3 {
+      margin-top: 0;
+    }
+    .output {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Task 1: Check Grade -->
+  <div class="task">
+    <h3>1. Check Grade</h3>
+    <input type="number" id="gradeScore" placeholder="Enter score" />
+    <button onclick="checkGrade()">Check Grade</button>
+    <div class="output" id="gradeOutput"></div>
+  </div>
+
+  <!-- Task 2: Login -->
+  <div class="task">
+    <h3>2. Login</h3>
+    <input type="text" id="loginUsername" placeholder="Username" />
+    <input type="password" id="loginPassword" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <div class="output" id="loginOutput"></div>
+  </div>
+
+  <!-- Task 3: Convert to Fahrenheit -->
+  <div class="task">
+    <h3>3. Convert Celsius to Fahrenheit</h3>
+    <input type="number" id="celsiusInput" placeholder="Enter Celsius" />
+    <button onclick="convertToFahrenheit()">Convert</button>
+    <div class="output" id="fahrenheitOutput"></div>
+  </div>
+
+  <!-- Task 4: Check Voting Eligibility -->
+  <div class="task">
+    <h3>4. Can You Vote?</h3>
+    <input type="number" id="ageInput" placeholder="Enter age" />
+    <button onclick="canVote()">Check</button>
+    <div class="output" id="voteOutput"></div>
+  </div>
+
+  <!-- Task 5: Temperature Status -->
+  <div class="task">
+    <h3>5. Temperature Status</h3>
+    <input type="number" id="tempInput" placeholder="Enter temperature" />
+    <button onclick="temperatureStatus()">Check Status</button>
+    <div class="output" id="tempStatusOutput"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Task 1
+    function checkGrade() {
+      const score = Number(document.getElementById("gradeScore").value);
+      let grade = "";
+      if (score >= 70) grade = "A";
+      else if (score >= 60) grade = "B";
+      else if (score >= 50) grade = "C";
+      else grade = "F";
+      document.getElementById("gradeOutput").textContent = "Grade: " + grade;
+    }
+
+    // Task 2
+    function login() {
+      const username = document.getElementById("loginUsername").value;
+      const password = document.getElementById("loginPassword").value;
+      const message = (username === "admin" && password === "1234") ? 
+        "Login successful" : "Login failed";
+      document.getElementById("loginOutput").textContent = message;
+    }
+
+    // Task 3
+    function convertToFahrenheit() {
+      const celsius = Number(document.getElementById("celsiusInput").value);
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      document.getElementById("fahrenheitOutput").textContent = 
+        `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+    }
+
+    // Task 4
+    function canVote() {
+      const age = Number(document.getElementById("ageInput").value);
+      const message = (age >= 18) ? "You are eligible to vote." : "You are NOT eligible to vote.";
+      document.getElementById("voteOutput").textContent = message;
+    }
+
+    // Task 5
+    function temperatureStatus() {
+      const temp = Number(document.getElementById("tempInput").value);
+      let status = "";
+      if (temp < 0) status = "Freezing";
+      else if (temp <= 15) status = "Cold";
+      else if (temp <= 25) status = "Cool";
+      else status = "Warm";
+      document.getElementById("tempStatusOutput").textContent = "Status: " + status;
+    }
+  </script>
+
+</body>
+</html>
